@@ -12,11 +12,11 @@ public class Patient {
     private int age;
     private String emailAddress;
     private boolean isInsured;
-    private String insuranceCoverType;
+    private int insuranceCoverTypeId;
 
     public Patient(String patientId, String firstName, String lastName, Date dateOfBirth, String address,
             String phoneNumber, String gender, int age, String emailAddress, boolean isInsured,
-            String insuranceCoverType) {
+            int insuranceCoverTypeId) {
         this.patientId = patientId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,7 +27,7 @@ public class Patient {
         this.age = age;
         this.emailAddress = emailAddress;
         this.isInsured = isInsured;
-        this.insuranceCoverType = insuranceCoverType;
+        this.insuranceCoverTypeId = insuranceCoverTypeId;
     }
 
     // Getters and Setters
@@ -111,11 +111,11 @@ public class Patient {
         this.isInsured = isInsured;
     }
 
-    public String getInsuranceCoverType() {
-        return insuranceCoverType;
+    public int getInsuranceCoverType() {
+        return insuranceCoverTypeId;
     }
 
-    public void setInsuranceCoverType(String insuranceCoverType) {
-        this.insuranceCoverType = insuranceCoverType;
+    public void setInsuranceCoverType(int insuranceCoverTypeId) {
+        this.insuranceCoverTypeId = insuranceCoverTypeId;
     }
 }
