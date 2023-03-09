@@ -1,6 +1,8 @@
 package models;
 
-public class InsuranceCoverType extends InsuranceCompany{
+import SQLprovider.InsuranceCoverTypeProvider;
+
+public class InsuranceCoverType extends InsuranceCoverTypeProvider{
     private int insuranceCoverTypeId;
     private String insuranceCoverType;
     private int insuranceCompanyId;

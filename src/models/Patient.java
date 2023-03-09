@@ -4,7 +4,7 @@ import java.util.Date;
 import SQLprovider.PatientProvider;
 
 public class Patient extends PatientProvider{
-    private String patientId;
+    private int patientId;
     private String firstName;
     private String lastName;
     private Date dateOfBirth;
@@ -21,10 +21,10 @@ public class Patient extends PatientProvider{
 
     }
 
-    public Patient(String patientId, String firstName, String lastName, Date dateOfBirth, String address,
+    public Patient( String firstName, String lastName, Date dateOfBirth, String address,
             String phoneNumber, String gender, int age, String emailAddress, boolean isInsured,
             int insuranceCoverTypeId) {
-        this.patientId = patientId;
+     //   this.patientId = patientId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -38,11 +38,11 @@ public class Patient extends PatientProvider{
     }
 
     // Getters and Setters
-    public String getPatientId() {
+    public int getPatientId() {
         return patientId;
     }
 
-    public void setPatientId(String patientId) {
+    public void setPatientId(int patientId) {
         this.patientId = patientId;
     }
 
@@ -124,5 +124,11 @@ public class Patient extends PatientProvider{
 
     public void setInsuranceCoverType(int insuranceCoverTypeId) {
         this.insuranceCoverTypeId = insuranceCoverTypeId;
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "ID: "+ patientId+" Name: "+firstName+" "+lastName;
     }
 }

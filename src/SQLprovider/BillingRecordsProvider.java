@@ -5,15 +5,15 @@ import models.BillingRecords;
 
 public class BillingRecordsProvider extends Connection{
     
-    void insert(BillingRecords billRec) {
+    protected  void insert(BillingRecords billRec) {
         //SQL Query goes here
     }
 
-    void delete(BillingRecords billRec) {
+    protected  void delete(BillingRecords billRec) {
          //SQL Query goes here
     }
 
-    void update(BillingRecords billRec) {
+    protected  void update(BillingRecords billRec) {
          //SQL Query goes here
     }
 

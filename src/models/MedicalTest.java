@@ -1,6 +1,8 @@
 package models;
 
-public class MedicalTest {
+import SQLprovider.MedicalTestProvider;
+
+public class MedicalTest extends MedicalTestProvider{
     private int medicalTestId;
     private String testName;
     private double testCharge;

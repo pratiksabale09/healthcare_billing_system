@@ -2,14 +2,9 @@ package usageModels;
 
 import java.sql.Date;
 
-import models.Equipment;
+import SQLprovider.EquipmentProvider;
 
-public class EquipmentUsage extends Equipment{
-
-    // public EquipmentUsage(int id, String name, double charge, String category, int units) {
-    //     super(id, name, charge, category, units);
-    //     //TODO Auto-generated constructor stub
-    // }
+public class EquipmentUsage extends EquipmentProvider{
     private int segmentId;
     private int equipmentId;
     private int patientId;

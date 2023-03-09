@@ -1,6 +1,8 @@
 package models;
 
-public class Equipment {
+import SQLprovider.EquipmentProvider;
+
+public class Equipment extends EquipmentProvider{
     private int equipment_id;
     private String equipment_name;
     private double equipment_charge_per_unit;
@@ -58,6 +60,12 @@ public class Equipment {
 
     public void setUnits(int units) {
         this.units = units;
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "name: "+equipment_name+" chargeperunit: "+equipment_charge_per_unit+" category: "+equipment_category+" units: "+units;
     }
 }
 

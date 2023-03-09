@@ -1,6 +1,8 @@
 package models;
 
-public class Room {
+import SQLprovider.RoomProvider;
+
+public class Room extends RoomProvider{
     private int room_id;
     private int healthcare_provider_id;
     private String room_type;
@@ -49,6 +51,12 @@ public class Room {
     
     public void setRoomCharge(double room_charge) {
         this.room_charge = room_charge;
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "Room ID: "+room_id+"    Room Type: "+room_type+"    Room Charge: "+room_charge;
     }
 }
 

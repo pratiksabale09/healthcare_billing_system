@@ -1,6 +1,7 @@
 package models;
+import SQLprovider.TreatmentProvider;
 
-public class Treatment {
+public class Treatment extends TreatmentProvider{
     private int treatment_id;
     private String treatment_name;
     private double treatment_charge;

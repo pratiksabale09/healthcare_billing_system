@@ -1,10 +1,8 @@
 package usageModels;
 
 import java.util.Date;
-
-import models.Treatment;
-
-public class TreatmentUsage extends Treatment{
+import SQLprovider.TreatmentProvider;
+public class TreatmentUsage extends TreatmentProvider{
     
     private int treatmentDetailsId; // Primary key
     private int treatmentId; // Foreign key to Room table

@@ -1,8 +1,7 @@
 package usageModels;
-
 import java.sql.Date;
-
-public class MedicineUsage {
+import SQLprovider.MedicineProvider;
+public class MedicineUsage extends MedicineProvider{
     private int medicineSegmentId;
     private int medicineId;
     private int patientId;

@@ -1,19 +1,27 @@
 package SQLprovider;
+import java.util.ArrayList;
+
 import Connection.Connection;
 import models.Patient;
 
 public class PatientProvider extends Connection
 {
 
-     void insert(Patient P) {
+    protected static void insert(Patient p) {
         
     }
 
-     void delete(Patient P) {
+    protected static void delete(int id) {
        
     }
 
-     void update(Patient P) {
+    protected static void update(int id) {
        
+    }
+
+    protected static ArrayList<Patient> getPatients() {
+            //implement
+
+       return new ArrayList<>();
     }
 }

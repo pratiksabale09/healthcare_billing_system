@@ -1,6 +1,8 @@
 package usageModels;
 
-public class MedicalTestConducted {
+import SQLprovider.MedicalTestProvider;
+
+public class MedicalTestConducted extends MedicalTestProvider{
     private int testConductedId;  // primary key
     private int medicalTestId;   // foreign key to medical_test table
     private int patientId;       // foreign key to Patient table

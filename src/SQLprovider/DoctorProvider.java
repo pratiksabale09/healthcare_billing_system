@@ -4,15 +4,15 @@ import Connection.Connection;
 import models.Doctor;
 
 public class DoctorProvider extends Connection{
-     void insert(Doctor doctor) {
+     protected static void insert(Doctor doctor) {
         //SQL Query goes here
     }
 
-     void delete(Doctor doctor) {
+    protected static void delete(Doctor doctor) {
          //SQL Query goes here
     }
 
-    void update(Doctor doctor) {
+    protected static void update(Doctor doctor) {
          //SQL Query goes here
     }
 }

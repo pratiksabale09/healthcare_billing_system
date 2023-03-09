@@ -1,6 +1,8 @@
 package models;
 
-public class Doctor {
+import SQLprovider.DoctorProvider;
+
+public class Doctor extends DoctorProvider{
     private int doctorId;
     private String name;
     private String qualification;
@@ -64,6 +66,12 @@ public class Doctor {
     
     public void setConsultationCharge(double consultationCharge) {
         this.consultationCharge = consultationCharge;
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "name: "+name+" qualification: "+qualification+" speciality: "+specialty+" consultaion charge: "+consultationCharge;
     }
 }
 

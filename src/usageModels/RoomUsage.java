@@ -1,8 +1,8 @@
 package usageModels;
 
 import java.util.Date;
-
-public class RoomUsage {
+import SQLprovider.RoomProvider;
+public class RoomUsage extends RoomProvider{
     private int roomSegmentId;
     private int roomId;
     private int patientId;

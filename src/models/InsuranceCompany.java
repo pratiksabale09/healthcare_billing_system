@@ -1,6 +1,8 @@
 package models;
 
-public class InsuranceCompany {
+import SQLprovider.InsuranceCompanyProvider;
+
+public class InsuranceCompany extends InsuranceCompanyProvider{
     private int insuranceCompanyId;
     private String name;
     private String address;

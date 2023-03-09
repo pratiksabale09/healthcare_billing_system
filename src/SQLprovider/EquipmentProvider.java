@@ -1,18 +1,24 @@
 package SQLprovider;
 
+import java.util.ArrayList;
+
 import Connection.Connection;
-import models.Equipment;
 
 public class EquipmentProvider extends Connection{
-     void insert(Equipment equipment) {
+    protected  void allocateEquipments(ArrayList<Integer> equipmentIDs, int patientID) {
         //SQL Query goes here
     }
 
-     void delete(Equipment equipment) {
+    protected  void viewEquipments() {
+        //SQL Query goes here
+    }
+
+    protected  void viewAllocatedEquipments(int patientID) {
+        //SQL Query goes here
+    }
+
+    protected  void deallocateEquipment(int patientID) {
          //SQL Query goes here
     }
 
-     void update(Equipment equipment) {
-         //SQL Query goes here
-    }
 }

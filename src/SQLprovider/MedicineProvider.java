@@ -1,17 +1,21 @@
 package SQLprovider;
+import java.util.ArrayList;
+
 import Connection.Connection;
 import models.Medicine;
 
 public class MedicineProvider extends Connection{
-     void insert(Medicine med) {
+    protected  void useMedicine(int medicineID, int patientID) {
         //SQL Query goes here
     }
 
-     void delete(Medicine med) {
+    protected  ArrayList<Medicine> showAllMedicines() {
+        return new ArrayList<>();
          //SQL Query goes here
     }
 
-     void update(Medicine med) {
+    protected  ArrayList<Medicine> showMedicinesByPatientID(int patientID) {
+        return new ArrayList<>();
          //SQL Query goes here
     }
 }
