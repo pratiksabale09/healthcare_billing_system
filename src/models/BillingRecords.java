@@ -1,6 +1,8 @@
 package models;
 
-public class BillingRecords {
+import SQLprovider.BillingRecordsProvider;
+
+public class BillingRecords extends BillingRecordsProvider{
     
     // Instance variables
     private int billId;

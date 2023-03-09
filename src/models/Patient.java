@@ -1,7 +1,9 @@
 package models;
 import java.util.Date;
 
-public class Patient {
+import SQLprovider.PatientProvider;
+
+public class Patient extends PatientProvider{
     private String patientId;
     private String firstName;
     private String lastName;
@@ -13,6 +15,11 @@ public class Patient {
     private String emailAddress;
     private boolean isInsured;
     private int insuranceCoverTypeId;
+
+    public Patient()
+    {
+
+    }
 
     public Patient(String patientId, String firstName, String lastName, Date dateOfBirth, String address,
             String phoneNumber, String gender, int age, String emailAddress, boolean isInsured,
