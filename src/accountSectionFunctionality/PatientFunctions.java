@@ -23,7 +23,6 @@ public class PatientFunctions extends PatientProvider{
         try {
              dob = sdf.parse(dobString);
         } catch (ParseException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         System.out.println("Enter patient address: ");

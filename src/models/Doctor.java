@@ -70,7 +70,6 @@ public class Doctor extends DoctorProvider{
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
         return "name: "+name+" qualification: "+qualification+" speciality: "+specialty+" consultaion charge: "+consultationCharge;
     }
 }

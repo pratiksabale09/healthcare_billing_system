@@ -64,7 +64,6 @@ public class Equipment extends EquipmentProvider{
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
         return "name: "+equipment_name+" chargeperunit: "+equipment_charge_per_unit+" category: "+equipment_category+" units: "+units;
     }
 }

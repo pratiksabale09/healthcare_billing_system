@@ -55,7 +55,6 @@ public class Room extends RoomProvider{
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
         return "Room ID: "+room_id+"    Room Type: "+room_type+"    Room Charge: "+room_charge;
     }
 }

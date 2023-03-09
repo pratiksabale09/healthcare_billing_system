@@ -19,7 +19,7 @@ public class BillFunctions {
 
     }
 
-    public static void chooseOperation() {
+    public void chooseOperation() {
         System.out.println(
                 "Choose an option: 1. Generate Bill    2. getBillReceipt(); ");
         int option = CommonUtil.scan.nextInt();
