@@ -1,8 +1,8 @@
 package SQLprovider;
-import Connection.Connection;
+import connection.DBConnection;
 import models.InsuranceCoverType;
 
-public class InsuranceCoverTypeProvider extends Connection{
+public class InsuranceCoverTypeProvider extends DBConnection{
     protected static void insert(InsuranceCoverType cover) {
         //SQL Query goes here
     }

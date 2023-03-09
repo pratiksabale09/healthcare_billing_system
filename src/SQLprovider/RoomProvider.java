@@ -2,10 +2,10 @@ package SQLprovider;
 
 import java.util.ArrayList;
 
-import Connection.Connection;
+import connection.DBConnection;
 import models.Room;
 
-public class RoomProvider extends Connection{
+public class RoomProvider extends DBConnection{
     protected  void allocateRoom(int roomID, int patientId) {
         //SQL Query goes here
     }

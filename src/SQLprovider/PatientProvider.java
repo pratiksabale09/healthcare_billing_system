@@ -1,10 +1,10 @@
 package SQLprovider;
 import java.util.ArrayList;
 
-import Connection.Connection;
+import connection.DBConnection;
 import models.Patient;
 
-public class PatientProvider extends Connection
+public class PatientProvider extends DBConnection
 {
 
     protected static void insert(Patient p) {

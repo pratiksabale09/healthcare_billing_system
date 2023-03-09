@@ -1,9 +1,8 @@
 package SQLprovider;
-
-import Connection.Connection;
+import connection.DBConnection;
 import models.Doctor;
 
-public class DoctorProvider extends Connection{
+public class DoctorProvider extends DBConnection{
      protected static void insert(Doctor doctor) {
         //SQL Query goes here
     }

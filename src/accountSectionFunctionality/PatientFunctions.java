@@ -14,11 +14,11 @@ public class PatientFunctions extends PatientProvider{
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         
         System.out.println("Enter patient first name: ");
-        String fname = CommonUtil.scan.nextLine();
+        String fname = CommonUtil.scan.next();
         System.out.println("Enter patient last name: ");
-        String lname = CommonUtil.scan.nextLine();
+        String lname = CommonUtil.scan.next();
         System.out.println("Enter patient DOB(yyyy-MM-dd): ");
-        String dobString = CommonUtil.scan.nextLine();
+        String dobString = CommonUtil.scan.next();
         Date dob = null;
         try {
              dob = sdf.parse(dobString);
@@ -26,18 +26,18 @@ public class PatientFunctions extends PatientProvider{
             e.printStackTrace();
         }
         System.out.println("Enter patient address: ");
-        String address = CommonUtil.scan.nextLine();
+        String address = CommonUtil.scan.next();
         System.out.println("Enter patient phone_number: ");
-        String phoneNumber = CommonUtil.scan.nextLine();
+        String phoneNumber = CommonUtil.scan.next();
         System.out.println("Enter patient gender(M/F): ");
-        String gender = CommonUtil.scan.nextLine();
+        String gender = CommonUtil.scan.next();
         System.out.println("Enter patient age: ");
         int age = CommonUtil.scan.nextInt();
         System.out.println("Enter patient email: ");
-        String email = CommonUtil.scan.nextLine();
+        String email = CommonUtil.scan.next();
         System.out.println("Does patient have health insurance?(Y/N) ");
         boolean isInsured = false;
-         String insurance = CommonUtil.scan.nextLine();
+         String insurance = CommonUtil.scan.next();
          if(insurance.toUpperCase()=="Y")
          {
             isInsured = true;

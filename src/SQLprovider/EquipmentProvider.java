@@ -2,9 +2,9 @@ package SQLprovider;
 
 import java.util.ArrayList;
 
-import Connection.Connection;
+import connection.DBConnection;
 
-public class EquipmentProvider extends Connection{
+public class EquipmentProvider extends DBConnection{
     protected  void allocateEquipments(ArrayList<Integer> equipmentIDs, int patientID) {
         //SQL Query goes here
     }

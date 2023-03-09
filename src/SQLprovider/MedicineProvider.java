@@ -1,10 +1,10 @@
 package SQLprovider;
 import java.util.ArrayList;
 
-import Connection.Connection;
+import connection.DBConnection;
 import models.Medicine;
 
-public class MedicineProvider extends Connection{
+public class MedicineProvider extends DBConnection{
     protected  void useMedicine(int medicineID, int patientID) {
         //SQL Query goes here
     }
