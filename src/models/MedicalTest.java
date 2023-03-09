@@ -5,6 +5,11 @@ public class MedicalTest {
     private String testName;
     private double testCharge;
     
+    public MedicalTest()
+    {
+
+    }
+    
     public MedicalTest(int medicalTestId, String testName, double testCharge) {
         this.medicalTestId = medicalTestId;
         this.testName = testName;

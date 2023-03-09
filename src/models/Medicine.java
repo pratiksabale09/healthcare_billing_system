@@ -7,6 +7,10 @@ public class Medicine {
     private int units;
     private String batchNo;
     
+    public Medicine()
+    {
+        
+    }
     public Medicine(int id, String name, double charge, int units, String batch) {
         this.medicineId = id;
         this.medicineName = name;

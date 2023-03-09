@@ -6,6 +6,11 @@ public class Room {
     private String room_type;
     private double room_charge;
     
+    public Room()
+    {
+
+    }
+    
     public Room(int room_id, int healthcare_provider_id, String room_type, double room_charge) {
         this.room_id = room_id;
         this.healthcare_provider_id = healthcare_provider_id;
