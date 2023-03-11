@@ -1,6 +1,5 @@
 package SQLprovider;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,11 +14,9 @@ public class EquipmentProvider extends DBConnection {
 
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Connection connection = null;
         try {
             String sql = "SELECT * FROM EQUIPMENT_DETAILS WHERE UNITS_AVAILABLE>0 ORDER BY EQUIPMENT_ID ASC";
-            connection = getConnection();
-            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement = getConnection().prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
             Equipment e = null;
             while (resultSet.next()) {
@@ -43,8 +40,8 @@ public class EquipmentProvider extends DBConnection {
                 if (resultSet != null) {
                     resultSet.close();
                 }
-                if (connection != null) {
-                    connection.close();
+                if (getConnection() != null) {
+                    getConnection().close();
                 }
 
             } catch (SQLException e) {

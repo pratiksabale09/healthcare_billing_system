@@ -1,6 +1,4 @@
 package SQLprovider;
-
-import java.sql.Connection;
 import models.Patient;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,16 +7,14 @@ import java.util.ArrayList;
 import connection.DBConnection;
 
 public class PatientProvider extends DBConnection {
-
     public ArrayList<Patient> getPatients() {
         ArrayList<Patient> patients = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Connection connection = null;
         try {
             String sql = "SELECT * FROM PATIENT";
-            connection = getConnection();
-            preparedStatement = connection.prepareStatement(sql);
+            //connection = ;
+            preparedStatement = getConnection().prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
             Patient p = null;
             while (resultSet.next()) {
@@ -57,7 +53,6 @@ public class PatientProvider extends DBConnection {
 
     public int insert(Patient p) {
         PreparedStatement preparedStatement = null;
-        Connection connection = null;
         ResultSet result = null;
         int key = -1;
         try {
@@ -67,9 +62,8 @@ public class PatientProvider extends DBConnection {
             } else {
                 sql = "INSERT INTO PATIENT (FIRST_NAME, LAST_NAME, DATE_OF_BIRTH, ADDRESS, PHONE_NUMBER, GENDER, AGE, EMAIL_ADDRESS, IS_INSURED) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             }
-            connection = getConnection();
 
-            preparedStatement = connection.prepareStatement(sql, new String[] { "PATIENT_ID" });
+            preparedStatement = getConnection().prepareStatement(sql, new String[] { "PATIENT_ID" });
             preparedStatement.setString(1, p.getFirstName());
             preparedStatement.setString(2, p.getLastName());
             preparedStatement.setDate(3, new java.sql.Date(p.getDateOfBirth().getTime()));
@@ -111,12 +105,10 @@ public class PatientProvider extends DBConnection {
 
     public boolean delete(int id) {
         PreparedStatement preparedStatement = null;
-        Connection connection = null;
         boolean result = false;
         try {
             String sql = "DELETE FROM PATIENT WHERE PATIENT_ID = ?";
-            connection = getConnection();
-            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement = getConnection().prepareStatement(sql);
             preparedStatement.setInt(1, id);
             int rowCount = preparedStatement.executeUpdate();
             if (rowCount > 0) {
@@ -130,8 +122,8 @@ public class PatientProvider extends DBConnection {
                 if (preparedStatement != null) {
                     preparedStatement.close();
                 }
-                if (connection != null) {
-                    connection.close();
+                if (getConnection() != null) {
+                    getConnection().close();
                 }
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
@@ -144,11 +136,9 @@ public class PatientProvider extends DBConnection {
         Patient p = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Connection connection = null;
         try {
             String sql = "SELECT * FROM PATIENT WHERE PATIENT_ID = ?";
-            connection = getConnection();
-            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement = getConnection().prepareStatement(sql);
             preparedStatement.setInt(1, patientId);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
