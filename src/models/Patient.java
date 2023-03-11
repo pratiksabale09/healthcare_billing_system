@@ -1,9 +1,10 @@
 package models;
+
 import java.util.Date;
 
 import SQLprovider.PatientProvider;
 
-public class Patient extends PatientProvider{
+public class Patient extends PatientProvider {
     private int patientId;
     private String firstName;
     private String lastName;
@@ -16,15 +17,29 @@ public class Patient extends PatientProvider{
     private boolean isInsured;
     private int insuranceCoverTypeId;
 
-    public Patient()
-    {
+    public Patient() {
 
     }
 
-    public Patient( String firstName, String lastName, Date dateOfBirth, String address,
+    public Patient(String firstName, String lastName, Date dateOfBirth, String address,
             String phoneNumber, String gender, int age, String emailAddress, boolean isInsured,
             int insuranceCoverTypeId) {
-     //   this.patientId = patientId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.gender = gender;
+        this.age = age;
+        this.emailAddress = emailAddress;
+        this.isInsured = isInsured;
+        this.insuranceCoverTypeId = insuranceCoverTypeId;
+    }
+
+    public Patient(int patientId, String firstName, String lastName, Date dateOfBirth, String address,
+            String phoneNumber, String gender, int age, String emailAddress, boolean isInsured,
+            int insuranceCoverTypeId) {
+        this.patientId = patientId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -128,6 +143,19 @@ public class Patient extends PatientProvider{
 
     @Override
     public String toString() {
-        return "ID: "+ patientId+" Name: "+firstName+" "+lastName;
+        StringBuilder sb = new StringBuilder();
+        sb.append("PatientId : ").append(patientId).append("\n");
+        sb.append("FirstName : ").append(firstName).append("\n");
+        sb.append("LastName : ").append(lastName).append("\n");
+        sb.append("DateOfBirth : ").append(dateOfBirth).append("\n");
+        sb.append("Address : ").append(address).append("\n");
+        sb.append("PhoneNumber : ").append(phoneNumber).append("\n");
+        sb.append("Gender : ").append(gender).append("\n");
+        sb.append("Age : ").append(age).append("\n");
+        sb.append("EmailAddress : ").append(emailAddress).append("\n");
+        sb.append("Is Insured : ").append(isInsured).append("\n");
+        sb.append("Insurance CoverType Id : ").append(insuranceCoverTypeId).append("\n");
+        return sb.toString();
     }
+
 }

@@ -1,38 +1,40 @@
 package usageModels;
 
 import java.util.Date;
-import SQLprovider.RoomProvider;
-public class RoomUsage extends RoomProvider{
-    private int roomSegmentId;
-    private int roomId;
+import models.Room;
+
+public class RoomUsage extends Room {
+    private int roomUsageId;
+
     private int patientId;
     private int durationInDays;
     private Date date;
 
-    public RoomUsage(int roomSegmentId, int roomId, int patientId, int durationInDays, Date date) {
-        this.roomSegmentId = roomSegmentId;
-        this.roomId = roomId;
+    public RoomUsage(int roomUsageId, int patientId, int durationInDays, Date date, int roomId, String roomType,
+            double roomCharge, boolean isAvailable) {
+        super(roomId, roomType, roomCharge, isAvailable);
+        this.roomUsageId = roomUsageId;
         this.patientId = patientId;
         this.durationInDays = durationInDays;
         this.date = date;
+
     }
 
     // getters and setters for all fields
-
-    public int getRoomSegmentId() {
-        return roomSegmentId;
+    public int getRoomUsageId() {
+        return roomUsageId;
     }
 
-    public void setRoomSegmentId(int roomSegmentId) {
-        this.roomSegmentId = roomSegmentId;
+    public void setRoomUsageId(int roomUsageId) {
+        this.roomUsageId = roomUsageId;
     }
 
-    public int getRoomId() {
-        return roomId;
+    public int getroomUsageId() {
+        return roomUsageId;
     }
 
-    public void setRoomId(int roomId) {
-        this.roomId = roomId;
+    public void setroomUsageId(int roomUsageId) {
+        this.roomUsageId = roomUsageId;
     }
 
     public int getPatientId() {
@@ -57,5 +59,11 @@ public class RoomUsage extends RoomProvider{
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        return "RoomUsage [roomUsageId=" + roomUsageId + ", patientId=" + patientId + ", durationInDays="
+                + durationInDays + ", date=" + date + "]";
     }
 }

@@ -16,7 +16,7 @@ public class App {
             System.out.println("3. Medical Test:");
             System.out.println("4. Rooms:");
             System.out.println("5. Equipments:");
-            System.out.println("6. Bills:");
+            System.out.println("6. Bills:\n");
             int accountCase = CommonUtil.scan.nextInt();
             switch (accountCase) {
                 case 1:
@@ -50,7 +50,7 @@ public class App {
                 default:
                     break;
             }
-            System.out.println("Please Enter 1 to continue 0 to go back to main section");
+            System.out.println("Please Enter 1 to continue in Account Section and  0 to go back to main section\n");
             bLoop = CommonUtil.scan.nextInt();
         }
     }
@@ -59,11 +59,12 @@ public class App {
         System.out.println("Welcome to the Healthcare Billing System");
         int aLoop = 1;
         while (aLoop == 1) {
-            System.out.println("Please select an option to continue:");
+            System.out.println("Please select your Role to continue:");
             System.out.println("1. Admin Section \n2. Account Section\n");
             int a = CommonUtil.scan.nextInt();
             switch (a) {
                 case 1:
+                
                     break;
 
                 case 2:
@@ -72,7 +73,7 @@ public class App {
                 default:
                     System.out.println("Choose correct option!");
             }
-            System.out.println("Press 1 to continue, 0 to exit");
+            System.out.println("Press 1 to continue, 0 to exit Application");
             aLoop = CommonUtil.scan.nextInt();
         }
     }

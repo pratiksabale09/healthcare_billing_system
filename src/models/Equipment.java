@@ -2,60 +2,60 @@ package models;
 
 import SQLprovider.EquipmentProvider;
 
-public class Equipment extends EquipmentProvider{
-    private int equipment_id;
-    private String equipment_name;
-    private double equipment_charge_per_unit;
-    private String equipment_category;
+public class Equipment extends EquipmentProvider {
+    private int equipmentId;
+    private String equipmentName;
+    private double equipmentChargePerUnit;
+    private String equipmentCategory;
     private int units;
 
-    public Equipment()
-    {
-        
-    }
-    public Equipment(int id, String name, double charge, String category, int units) {
-        this.equipment_id = id;
-        this.equipment_name = name;
-        this.equipment_charge_per_unit = charge;
-        this.equipment_category = category;
+    public Equipment(int equipmentId, String equipmentName, double equipmentChargePerUnit, String equipmentCategory,
+            int units) {
+        this.equipmentId = equipmentId;
+        this.equipmentName = equipmentName;
+        this.equipmentChargePerUnit = equipmentChargePerUnit;
+        this.equipmentCategory = equipmentCategory;
         this.units = units;
     }
 
-    // Getters and Setters for each field
-    public int getEquipmentId() {
-        return this.equipment_id;
+    public Equipment() {
+
     }
 
-    public void setEquipmentId(int id) {
-        this.equipment_id = id;
+    public int getEquipmentId() {
+        return equipmentId;
+    }
+
+    public void setEquipmentId(int equipmentId) {
+        this.equipmentId = equipmentId;
     }
 
     public String getEquipmentName() {
-        return this.equipment_name;
+        return equipmentName;
     }
 
-    public void setEquipmentName(String name) {
-        this.equipment_name = name;
+    public void setEquipmentName(String equipmentName) {
+        this.equipmentName = equipmentName;
     }
 
     public double getEquipmentChargePerUnit() {
-        return this.equipment_charge_per_unit;
+        return equipmentChargePerUnit;
     }
 
-    public void setEquipmentChargePerUnit(double charge) {
-        this.equipment_charge_per_unit = charge;
+    public void setEquipmentChargePerUnit(double equipmentChargePerUnit) {
+        this.equipmentChargePerUnit = equipmentChargePerUnit;
     }
 
     public String getEquipmentCategory() {
-        return this.equipment_category;
+        return equipmentCategory;
     }
 
-    public void setEquipmentCategory(String category) {
-        this.equipment_category = category;
+    public void setEquipmentCategory(String equipmentCategory) {
+        this.equipmentCategory = equipmentCategory;
     }
 
     public int getUnits() {
-        return this.units;
+        return units;
     }
 
     public void setUnits(int units) {
@@ -64,7 +64,8 @@ public class Equipment extends EquipmentProvider{
 
     @Override
     public String toString() {
-        return "name: "+equipment_name+" chargeperunit: "+equipment_charge_per_unit+" category: "+equipment_category+" units: "+units;
+        return "Equipment [equipmentId=" + equipmentId + ", equipmentName=" + equipmentName
+                + ", equipmentChargePerUnit=" + equipmentChargePerUnit + ", equipmentCategory=" + equipmentCategory
+                + ", units=" + units + "]";
     }
 }
-

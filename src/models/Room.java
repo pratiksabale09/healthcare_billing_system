@@ -2,60 +2,67 @@ package models;
 
 import SQLprovider.RoomProvider;
 
-public class Room extends RoomProvider{
-    private int room_id;
-    private int healthcare_provider_id;
-    private String room_type;
-    private double room_charge;
-    
-    public Room()
-    {
+public class Room extends RoomProvider {
+    private int roomId;
+    private String roomType;
+    private double roomCharge;
+    private boolean isAvailable;
+
+    public Room(int roomId, String roomType, double roomCharge, boolean isAvailable) {
+        this.roomId = roomId;
+        this.roomType = roomType;
+        this.roomCharge = roomCharge;
+        this.isAvailable = isAvailable;
+    }
+
+    public Room() {
 
     }
-    
-    public Room(int room_id, int healthcare_provider_id, String room_type, double room_charge) {
-        this.room_id = room_id;
-        this.healthcare_provider_id = healthcare_provider_id;
-        this.room_type = room_type;
-        this.room_charge = room_charge;
+
+    public void setAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
-    
-    // Getters and Setters for all fields
+
     public int getRoomId() {
-        return room_id;
+        return roomId;
     }
-    
-    public void setRoomId(int room_id) {
-        this.room_id = room_id;
+
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
-    
-    public int getHealthcareProviderId() {
-        return healthcare_provider_id;
-    }
-    
-    public void setHealthcareProviderId(int healthcare_provider_id) {
-        this.healthcare_provider_id = healthcare_provider_id;
-    }
-    
+
     public String getRoomType() {
-        return room_type;
+        return roomType;
     }
-    
-    public void setRoomType(String room_type) {
-        this.room_type = room_type;
+
+    public void setRoomType(String roomType) {
+        this.roomType = roomType;
     }
-    
+
     public double getRoomCharge() {
-        return room_charge;
+        return roomCharge;
     }
-    
-    public void setRoomCharge(double room_charge) {
-        this.room_charge = room_charge;
+
+    public void setRoomCharge(double roomCharge) {
+        this.roomCharge = roomCharge;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
     }
 
     @Override
     public String toString() {
-        return "Room ID: "+room_id+"    Room Type: "+room_type+"    Room Charge: "+room_charge;
+        StringBuilder sb = new StringBuilder();
+        sb.append("roomId : ").append(roomId)
+                .append("\n")
+                .append("roomType : ").append(roomType)
+                .append("\n")
+                .append("roomCharge : ").append(roomCharge)
+                .append("\n")
+                .append("isAvailable : ").append(isAvailable)
+                .append("\n");
+        return sb.toString();
     }
-}
 
+}
