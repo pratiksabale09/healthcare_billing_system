@@ -1,38 +1,30 @@
 package usageModels;
 
 import java.util.Date;
-import SQLprovider.TreatmentProvider;
-public class TreatmentUsage extends TreatmentProvider{
-    
-    private int treatmentDetailsId; // Primary key
-    private int treatmentId; // Foreign key to Room table
-    private int patientId; // Foreign key to Patient table
-    private int doctorId; // Foreign key to Doctor table
+
+import models.Doctor;
+import models.Treatment;
+
+public class TreatmentUsage extends Treatment{
+    private int treatmentDetailsId;
+    private int patientId;
+    private Doctor doctor;
     private Date date;
 
-    public TreatmentUsage(int treatmentDetailsId, int treatmentId, int patientId, int doctorId, Date date) {
+    public TreatmentUsage(int treatmentDetailsId, int patientId, Doctor doctor, Date date, int treatment_id, String treatment_name, double treatment_charge) {
+        super(treatment_id, treatment_name, treatment_charge);
         this.treatmentDetailsId = treatmentDetailsId;
-        this.treatmentId = treatmentId;
+        this.doctor = doctor;
         this.patientId = patientId;
-        this.doctorId = doctorId;
         this.date = date;
     }
 
-    // Getters and setters for all fields
     public int getTreatmentDetailsId() {
         return treatmentDetailsId;
     }
 
     public void setTreatmentDetailsId(int treatmentDetailsId) {
         this.treatmentDetailsId = treatmentDetailsId;
-    }
-
-    public int getTreatmentId() {
-        return treatmentId;
-    }
-
-    public void setTreatmentId(int treatmentId) {
-        this.treatmentId = treatmentId;
     }
 
     public int getPatientId() {
@@ -43,12 +35,12 @@ public class TreatmentUsage extends TreatmentProvider{
         this.patientId = patientId;
     }
 
-    public int getDoctorId() {
-        return doctorId;
+    public Doctor getDoctor() {
+        return doctor;
     }
 
-    public void setDoctorId(int doctorId) {
-        this.doctorId = doctorId;
+    public void setDoctorId(Doctor doctor) {
+        this.doctor = doctor;
     }
 
     public Date getDate() {
@@ -59,4 +51,3 @@ public class TreatmentUsage extends TreatmentProvider{
         this.date = date;
     }
 }
-

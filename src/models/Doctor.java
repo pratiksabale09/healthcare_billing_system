@@ -7,15 +7,13 @@ public class Doctor extends DoctorProvider{
     private String name;
     private String qualification;
     private String specialty;
-    private int medicalProviderId;
     private double consultationCharge;
     
-    public Doctor(int doctorId, String name, String qualification, String specialty, int medicalProviderId, double consultationCharge) {
+    public Doctor(int doctorId, String name, String qualification, String specialty, double consultationCharge) {
         this.doctorId = doctorId;
         this.name = name;
         this.qualification = qualification;
         this.specialty = specialty;
-        this.medicalProviderId = medicalProviderId;
         this.consultationCharge = consultationCharge;
     }
     
@@ -50,14 +48,6 @@ public class Doctor extends DoctorProvider{
     
     public void setSpecialty(String specialty) {
         this.specialty = specialty;
-    }
-    
-    public int getMedicalProviderId() {
-        return medicalProviderId;
-    }
-    
-    public void setMedicalProviderId(int medicalProviderId) {
-        this.medicalProviderId = medicalProviderId;
     }
     
     public double getConsultationCharge() {
