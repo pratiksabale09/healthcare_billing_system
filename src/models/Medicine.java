@@ -56,5 +56,10 @@ public class Medicine extends MedicineProvider{
     public void setBatchNo(String batchNo) {
         this.batchNo = batchNo;
     }
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "Medicine ID: "+medicineId+"     Medicine Name: "+medicineName+"    Medicine Charge Per Unit: "+medicineChargePerUnit+"     Available Units: "+units+"   Batch Number: "+batchNo;
+    }
 }
 

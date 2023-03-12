@@ -12,7 +12,7 @@ public class MedicalTestProvider extends DBConnection{
     protected void conductMedicalTest(int medTestID, int patientID) {
 
         //query remaining
-        
+
         PreparedStatement preparedStatement = null;
         try {
             String sql = "";
@@ -98,7 +98,7 @@ public class MedicalTestProvider extends DBConnection{
                 conductedMedTest.setTestConductedId(result.getInt("TEST_CONDUCTED_ID"));
                 conductedMedTest.setMedicalTestId(result.getInt("MEDICAL_TEST_ID"));
                 conductedMedTest.setPatientId(result.getInt("PATIENT_ID"));
-                conductedMedTest.setDate(result.getDate("U_DATE").toString());
+                conductedMedTest.setDate(result.getDate("U_DATE"));
                 medTestList.add(conductedMedTest);
             }
         } catch (SQLException e) {

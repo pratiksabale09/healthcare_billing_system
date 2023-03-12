@@ -58,4 +58,10 @@ public class MedicineUsage extends MedicineProvider{
     public void setDate(Date date) {
         this.date = date;
     }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "Medicine Usage ID: "+medicineSegmentId+"    Medicine ID: "+medicineId+"     Patient ID: "+patientId+"   Usage Count: "+usageCount+"     Date: "+date.toString();
+    }
 }

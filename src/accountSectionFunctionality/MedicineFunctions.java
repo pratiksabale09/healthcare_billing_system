@@ -10,11 +10,22 @@ import usageModels.MedicineUsage;
 public class MedicineFunctions extends MedicineProvider{
     private  void useMedicine() {
         System.out.println("Enter Medicine ID:");
-        int treatmentID = CommonUtil.scan.nextInt();
+        int medicineID = CommonUtil.scan.nextInt();
         System.out.println("Enter patient ID:");
         int patientID = CommonUtil.scan.nextInt();
-        useMedicine(treatmentID, patientID);
+        System.out.println("Enter number of Units Required:");
+        int units = CommonUtil.scan.nextInt();
+        if(availableMedicineCount(medicineID)>units)
+        {
+            System.out.println("Available: "+availableMedicineCount(medicineID));
+            useMedicine(medicineID, patientID);
+        }
+        else
+        {
+            System.out.println("Not enough medicines available!");
+        }
     }
+
     private void showMedicines() {
         ArrayList<Medicine> allMedicines =  showAllMedicines();
         for(Medicine medicine: allMedicines)
@@ -28,7 +39,7 @@ public class MedicineFunctions extends MedicineProvider{
         System.out.println("Enter patient ID:");
         int patientID = CommonUtil.scan.nextInt();
         ArrayList<MedicineUsage> allMedicines =  showMedicinesByPatientID(patientID);
-        for(Medicine medicine: allMedicines)
+        for(MedicineUsage medicine: allMedicines)
         {
             System.out.println(medicine.toString());
         }

@@ -1,15 +1,17 @@
 package usageModels;
 
+import java.sql.Date;
+
 import SQLprovider.MedicalTestProvider;
 
 public class MedicalTestConducted extends MedicalTestProvider{
     private int testConductedId;  // primary key
     private int medicalTestId;   // foreign key to medical_test table
     private int patientId;       // foreign key to Patient table
-    private String date;         // date of test
+    private Date date;         // date of test
 
     // constructor
-    public MedicalTestConducted(int testConductedId, int medicalTestId, int patientId, String date) {
+    public MedicalTestConducted(int testConductedId, int medicalTestId, int patientId, Date date) {
         this.testConductedId = testConductedId;
         this.medicalTestId = medicalTestId;
         this.patientId = patientId;
@@ -44,11 +46,11 @@ public class MedicalTestConducted extends MedicalTestProvider{
         this.patientId = patientId;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

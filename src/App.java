@@ -2,6 +2,7 @@ import Common.CommonUtil;
 import accountSectionFunctionality.BillFunctions;
 import accountSectionFunctionality.EquipmentFunctions;
 import accountSectionFunctionality.MedTestFunctions;
+import accountSectionFunctionality.MedicineFunctions;
 import accountSectionFunctionality.PatientFunctions;
 import accountSectionFunctionality.RoomFunctions;
 import accountSectionFunctionality.TreatmentFunctions;
@@ -16,7 +17,8 @@ public class App {
             System.out.println("3. Medical Test:");
             System.out.println("4. Rooms:");
             System.out.println("5. Equipments:");
-            System.out.println("6. Bills:\n");
+            System.out.println("6. Medicines:");
+            System.out.println("7. Bills:\n");
             int accountCase = CommonUtil.scan.nextInt();
             switch (accountCase) {
                 case 1:
@@ -42,8 +44,11 @@ public class App {
                     EquipmentFunctions equipmentFunctions = new EquipmentFunctions();
                     equipmentFunctions.chooseOperation();
                     break;
-
                 case 6:
+                    MedicineFunctions medicineFunctions = new MedicineFunctions();
+                    medicineFunctions.chooseOperation();
+                    break;
+                case 7:
                     BillFunctions billFunctions = new BillFunctions();
                     billFunctions.chooseOperation();
                     break;
