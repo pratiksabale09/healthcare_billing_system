@@ -16,6 +16,9 @@ public class MedicineUsage extends MedicineProvider{
         this.date = date;
     }
 
+    public MedicineUsage() {
+    }
+
     public int getMedicineSegmentId() {
         return medicineSegmentId;
     }

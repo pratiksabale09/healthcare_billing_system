@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import Common.CommonUtil;
 import SQLprovider.MedicineProvider;
 import models.Medicine;
+import usageModels.MedicineUsage;
 
 public class MedicineFunctions extends MedicineProvider{
     private  void useMedicine() {
@@ -26,7 +27,7 @@ public class MedicineFunctions extends MedicineProvider{
     {
         System.out.println("Enter patient ID:");
         int patientID = CommonUtil.scan.nextInt();
-        ArrayList<Medicine> allMedicines =  showMedicinesByPatientID(patientID);
+        ArrayList<MedicineUsage> allMedicines =  showMedicinesByPatientID(patientID);
         for(Medicine medicine: allMedicines)
         {
             System.out.println(medicine.toString());

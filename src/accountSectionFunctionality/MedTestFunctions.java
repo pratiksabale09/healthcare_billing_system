@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import Common.CommonUtil;
 import SQLprovider.MedicalTestProvider;
 import models.MedicalTest;
+import usageModels.MedicalTestConducted;
 
 public class MedTestFunctions extends MedicalTestProvider{
     private  void conductMedicalTest() {
+        //tested
         System.out.println("Enter medical test ID:");
         int medTestID = CommonUtil.scan.nextInt();
         System.out.println("Enter patientID:");
@@ -24,10 +26,11 @@ public class MedTestFunctions extends MedicalTestProvider{
     }
 
     private  void viewConductedTests() {
+
         System.out.println("Enter patient ID to view medical tests:");
         int patientID = CommonUtil.scan.nextInt();
-        ArrayList<MedicalTest> allConductedTests = viewAllConductedTests(patientID);
-        for(MedicalTest test: allConductedTests)
+        ArrayList<MedicalTestConducted> allConductedTests = viewAllConductedTests(patientID);
+        for(MedicalTestConducted test: allConductedTests)
         {
             System.out.println(test.toString());
         }

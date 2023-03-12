@@ -16,6 +16,9 @@ public class MedicalTestConducted extends MedicalTestProvider{
         this.date = date;
     }
 
+    public MedicalTestConducted() {
+    }
+
     // getters and setters
     public int getTestConductedId() {
         return testConductedId;
@@ -47,5 +50,11 @@ public class MedicalTestConducted extends MedicalTestProvider{
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "Test Conducted ID: "+testConductedId+"      Medical Test ID: "+medicalTestId+"      Patient ID: "+patientId+"   Test Conducted Date: "+date;
     }
 }

@@ -41,5 +41,11 @@ public class MedicalTest extends MedicalTestProvider{
     public void setTestCharge(double testCharge) {
         this.testCharge = testCharge;
     }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "Medical Test ID: "+medicalTestId+"      Test Charge: "+testCharge+"     Test Name: "+testName;
+    }
 }
 
