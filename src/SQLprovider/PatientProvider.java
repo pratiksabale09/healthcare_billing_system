@@ -131,6 +131,7 @@ public class PatientProvider extends DBConnection {
         }
         return result;
     }
+    
 
     public Patient getPatientById(int patientId) {
         Patient p = null;

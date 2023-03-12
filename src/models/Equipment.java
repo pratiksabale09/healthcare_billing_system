@@ -5,11 +5,11 @@ import SQLprovider.EquipmentProvider;
 public class Equipment extends EquipmentProvider {
     private int equipmentId;
     private String equipmentName;
-    private double equipmentChargePerUnit;
+    private float equipmentChargePerUnit;
     private String equipmentCategory;
     private int units;
 
-    public Equipment(int equipmentId, String equipmentName, double equipmentChargePerUnit, String equipmentCategory,
+    public Equipment(int equipmentId, String equipmentName, float equipmentChargePerUnit, String equipmentCategory,
             int units) {
         this.equipmentId = equipmentId;
         this.equipmentName = equipmentName;
@@ -42,7 +42,7 @@ public class Equipment extends EquipmentProvider {
         return equipmentChargePerUnit;
     }
 
-    public void setEquipmentChargePerUnit(double equipmentChargePerUnit) {
+    public void setEquipmentChargePerUnit(float equipmentChargePerUnit) {
         this.equipmentChargePerUnit = equipmentChargePerUnit;
     }
 

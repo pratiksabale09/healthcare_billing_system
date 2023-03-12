@@ -11,7 +11,7 @@ import java.util.Properties;
 public class DBConnection {
     private static Connection connection;
 
-    protected Connection getConnection() {
+    public Connection getConnection() {
         Properties prop = new Properties();
         InputStream is = null;
         try {

@@ -6,40 +6,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
+import Common.CommonProvider;
 import connection.DBConnection;
 import models.Room;
 import usageModels.RoomUsage;
 
 public class RoomProvider extends DBConnection {
-
-    private int isValidPatient(int patientId) {
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        int patientCount = 0;
-        try {
-            String checkPatient = "SELECT COUNT(PATIENT_ID) FROM PATIENT WHERE PATIENT_ID = ?";
-            preparedStatement = getConnection().prepareStatement(checkPatient);
-            preparedStatement.setInt(1, patientId);
-            resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            patientCount = resultSet.getInt(1);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (preparedStatement != null) {
-                    preparedStatement.close();
-                }
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                closeConnection();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-        return patientCount;
-    }
 
     private int isValidRoom(int roomID) {
         PreparedStatement preparedStatement = null;
@@ -103,7 +75,7 @@ public class RoomProvider extends DBConnection {
         int resultCode = 0;
         try {
 
-            int patientCount = isValidPatient(patientId);
+            int patientCount = CommonProvider.isValidPatient(patientId);
             int roomCount = isValidRoom(roomID);
             int insertCount = 0;
             if (patientCount > 0 && roomCount > 0) {
