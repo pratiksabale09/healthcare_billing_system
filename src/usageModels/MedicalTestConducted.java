@@ -1,19 +1,19 @@
 package usageModels;
 
-import java.sql.Date;
+import java.util.Date;
 
-import SQLprovider.MedicalTestProvider;
+import models.MedicalTest;
 
-public class MedicalTestConducted extends MedicalTestProvider{
-    private int testConductedId;  // primary key
-    private int medicalTestId;   // foreign key to medical_test table
-    private int patientId;       // foreign key to Patient table
-    private Date date;         // date of test
+public class MedicalTestConducted extends MedicalTest {
+    private int testConductedId; // primary key
+    private int patientId; // foreign key to Patient table
+    private Date date; // date of test
 
     // constructor
-    public MedicalTestConducted(int testConductedId, int medicalTestId, int patientId, Date date) {
+    public MedicalTestConducted(int testConductedId, int patientId, Date date, int medicalTestId, String testName,
+            float testCharge) {
+        super(medicalTestId, testName, testCharge);
         this.testConductedId = testConductedId;
-        this.medicalTestId = medicalTestId;
         this.patientId = patientId;
         this.date = date;
     }
@@ -28,14 +28,6 @@ public class MedicalTestConducted extends MedicalTestProvider{
 
     public void setTestConductedId(int testConductedId) {
         this.testConductedId = testConductedId;
-    }
-
-    public int getMedicalTestId() {
-        return medicalTestId;
-    }
-
-    public void setMedicalTestId(int medicalTestId) {
-        this.medicalTestId = medicalTestId;
     }
 
     public int getPatientId() {
@@ -56,7 +48,7 @@ public class MedicalTestConducted extends MedicalTestProvider{
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return "Test Conducted ID: "+testConductedId+"      Medical Test ID: "+medicalTestId+"      Patient ID: "+patientId+"   Test Conducted Date: "+date;
+        return "Test Conducted ID: " + testConductedId + "      Patient ID: " + patientId + "   Test Conducted Date: "
+                + date;
     }
 }

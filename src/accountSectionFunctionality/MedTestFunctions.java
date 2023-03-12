@@ -7,38 +7,58 @@ import SQLprovider.MedicalTestProvider;
 import models.MedicalTest;
 import usageModels.MedicalTestConducted;
 
-public class MedTestFunctions extends MedicalTestProvider{
-    private  void conductMedicalTest() {
-        //tested
+public class MedTestFunctions extends MedicalTestProvider {
+    private void conductMedicalTest() {
+        // tested
         System.out.println("Enter medical test ID:");
         int medTestID = CommonUtil.scan.nextInt();
         System.out.println("Enter patientID:");
         int patientID = CommonUtil.scan.nextInt();
-        conductMedicalTest(medTestID, patientID);
-    }
-
-    private  void viewMedicalTests() {
-        ArrayList<MedicalTest> allTests = viewAllMedicalTests();
-        for(MedicalTest test: allTests)
-        {
-            System.out.println(test.toString());
+        int statusCode = conductMedicalTest(medTestID, patientID);
+        if (statusCode == 0) {
+            System.out.println("\nInvalid patientId\n");
+        } else if (statusCode == 1) {
+            System.out.println("\nInvalid Medical test Id\n");
+        } else {
+            System.out.println("\nMedical test Added SucessFully\n");
         }
     }
 
-    private  void viewConductedTests() {
+    private void viewMedicalTests() {
+        ArrayList<MedicalTest> medicalTests = getAllMedicalTests();
+        System.out.println("+------------------------------------------------------------------------------------+");
+        System.out.printf("| %-20s | %-20s | %-36s |\n", "Medical Test ID", "Test Charge", "Test Name");
+        System.out.println("+------------------------------------------------------------------------------------+");
+        for (MedicalTest mt : medicalTests) {
+            System.out.printf("| %-20d | %-20.2f | %-36s |\n", mt.getMedicalTestId(), mt.getTestCharge(),
+                    mt.getTestName());
+        }
+        System.out.println("+------------------------------------------------------------------------------------+");
+    }
+
+    private void viewConductedTests() {
 
         System.out.println("Enter patient ID to view medical tests:");
         int patientID = CommonUtil.scan.nextInt();
         ArrayList<MedicalTestConducted> allConductedTests = viewAllConductedTests(patientID);
-        for(MedicalTestConducted test: allConductedTests)
-        {
-            System.out.println(test.toString());
+        System.out.println(
+                "+-------------------------------------------------------------------------------------------------------+");
+        System.out.printf("| %-10s | %-36s | %-10s | %-10s | %-10s | %-10s |\n",
+                "Test ID", "Test Name", "Charge", "ID", "Patient ID", "Date");
+        System.out.println(
+                "+-------------------------------------------------------------------------------------------------------+");
+        for (MedicalTestConducted medicalTest : allConductedTests) {
+            System.out.printf("| %-10d | %-36s | %-10.2f | %-10d | %-10d | %-10s |\n",
+                    medicalTest.getMedicalTestId(), medicalTest.getTestName(), medicalTest.getTestCharge(),
+                    medicalTest.getTestConductedId(), medicalTest.getPatientId(), medicalTest.getDate());
         }
+        System.out.println(
+                "+-------------------------------------------------------------------------------------------------------+");
     }
 
-    public  void chooseOperation() {
+    public void chooseOperation() {
         System.out.println(
-                "Choose an option:\n1. Conduct MedicalTest\n2. View MedicalTest\n 3. View MedicalTests by patient ID");
+                "Choose an option:\n1. Conduct MedicalTest\n2. View MedicalTest\n3. View MedicalTests by patient ID");
         int option = CommonUtil.scan.nextInt();
         switch (option) {
             case 1:

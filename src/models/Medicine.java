@@ -5,7 +5,7 @@ import SQLprovider.MedicineProvider;
 public class Medicine extends MedicineProvider{
     private int medicineId;
     private String medicineName;
-    private double medicineChargePerUnit;
+    private float medicineChargePerUnit;
     private int units;
     private String batchNo;
     
@@ -13,7 +13,7 @@ public class Medicine extends MedicineProvider{
     {
         
     }
-    public Medicine(int id, String name, double charge, int units, String batch) {
+    public Medicine(int id, String name, float charge, int units, String batch) {
         this.medicineId = id;
         this.medicineName = name;
         this.medicineChargePerUnit = charge;
@@ -36,10 +36,10 @@ public class Medicine extends MedicineProvider{
         this.medicineName = medicineName;
     }
     
-    public double getMedicineChargePerUnit() {
+    public float getMedicineChargePerUnit() {
         return medicineChargePerUnit;
     }
-    public void setMedicineChargePerUnit(double medicineChargePerUnit) {
+    public void setMedicineChargePerUnit(float medicineChargePerUnit) {
         this.medicineChargePerUnit = medicineChargePerUnit;
     }
     
@@ -58,7 +58,6 @@ public class Medicine extends MedicineProvider{
     }
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
         return "Medicine ID: "+medicineId+"     Medicine Name: "+medicineName+"    Medicine Charge Per Unit: "+medicineChargePerUnit+"     Available Units: "+units+"   Batch Number: "+batchNo;
     }
 }

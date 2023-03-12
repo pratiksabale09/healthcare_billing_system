@@ -1,16 +1,18 @@
 package usageModels;
-import java.sql.Date;
-import SQLprovider.MedicineProvider;
-public class MedicineUsage extends MedicineProvider{
-    private int medicineSegmentId;
-    private int medicineId;
+
+import java.util.Date;
+import models.Medicine;
+
+public class MedicineUsage extends Medicine {
+    private int medicineUsageId;
     private int patientId;
     private int usageCount;
     private Date date;
 
-    public MedicineUsage(int medicineSegmentId, int medicineId, int patientId, int usageCount, Date date) {
-        this.medicineSegmentId = medicineSegmentId;
-        this.medicineId = medicineId;
+    public MedicineUsage(int medicineUsageId, int patientId, int usageCount, Date date, int id, String name,
+            float charge, int units, String batch) {
+        super(id, name, charge, units, batch);
+        this.medicineUsageId = medicineUsageId;
         this.patientId = patientId;
         this.usageCount = usageCount;
         this.date = date;
@@ -19,20 +21,12 @@ public class MedicineUsage extends MedicineProvider{
     public MedicineUsage() {
     }
 
-    public int getMedicineSegmentId() {
-        return medicineSegmentId;
+    public int getMedicineUsageId() {
+        return medicineUsageId;
     }
 
-    public void setMedicineSegmentId(int medicineSegmentId) {
-        this.medicineSegmentId = medicineSegmentId;
-    }
-
-    public int getMedicineId() {
-        return medicineId;
-    }
-
-    public void setMedicineId(int medicineId) {
-        this.medicineId = medicineId;
+    public void setMedicineUsageId(int medicineUsageId) {
+        this.medicineUsageId = medicineUsageId;
     }
 
     public int getPatientId() {
@@ -61,7 +55,8 @@ public class MedicineUsage extends MedicineProvider{
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return "Medicine Usage ID: "+medicineSegmentId+"    Medicine ID: "+medicineId+"     Patient ID: "+patientId+"   Usage Count: "+usageCount+"     Date: "+date.toString();
+        return "MedicineUsage [medicineUsageId=" + medicineUsageId + ", patientId=" + patientId + ", usageCount="
+                + usageCount + ", date=" + date + "]";
     }
+
 }

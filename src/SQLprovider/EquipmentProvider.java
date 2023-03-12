@@ -175,6 +175,7 @@ public class EquipmentProvider extends DBConnection {
         return resultCode;
 
     }
+    
 
     private void updateEquipmentCount(int equipmentID, int count) {
         PreparedStatement preparedStatement = null;
