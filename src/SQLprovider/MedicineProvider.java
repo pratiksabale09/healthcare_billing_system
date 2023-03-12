@@ -11,6 +11,9 @@ public class MedicineProvider extends DBConnection{
 
     protected int availableMedicineCount(int medicineID)
     {
+
+        //tested
+
         int count = -1;
         PreparedStatement preparedStatement = null;
         ResultSet result = null;
@@ -49,6 +52,8 @@ public class MedicineProvider extends DBConnection{
 
     protected  void useMedicine(int medicineID, int patientID) {
 
+        //query remaining
+
         PreparedStatement preparedStatement = null;
         try {
             String sql = "";
@@ -73,6 +78,10 @@ public class MedicineProvider extends DBConnection{
     }
 
     protected  ArrayList<Medicine> showAllMedicines() {
+
+        //tested
+
+        
         ArrayList<Medicine> allMedicineList = new ArrayList<Medicine>();
         PreparedStatement preparedStatement = null;
         ResultSet result = null;
