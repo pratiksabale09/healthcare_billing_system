@@ -1,6 +1,5 @@
 package SQLprovider;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,42 +11,110 @@ import models.Room;
 import usageModels.RoomUsage;
 
 public class RoomProvider extends DBConnection {
-    protected int allocateRoom(int roomID, int patientId, int duration) {
+
+    private int isValidPatient(int patientId) {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Connection connection = null;
-        int resultCode = 0;
+        int patientCount = 0;
         try {
-            connection = getConnection();
             String checkPatient = "SELECT COUNT(PATIENT_ID) FROM PATIENT WHERE PATIENT_ID = ?";
-            String checkRoom = "SELECT COUNT(ROOM_ID) FROM ROOM_DETAILS WHERE ROOM_ID = ? AND IS_AVAILABLE = 1";
-            preparedStatement = connection.prepareStatement(checkPatient);
+            preparedStatement = getConnection().prepareStatement(checkPatient);
             preparedStatement.setInt(1, patientId);
             resultSet = preparedStatement.executeQuery();
             resultSet.next();
-            int patientCount = resultSet.getInt(1);
+            patientCount = resultSet.getInt(1);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                closeConnection();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return patientCount;
+    }
 
-            preparedStatement.close();
-            resultSet.close();
+    private int isValidRoom(int roomID) {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        int roomCount = 0;
+        try {
 
-            preparedStatement = connection.prepareStatement(checkRoom);
+            String checkRoom = "SELECT COUNT(ROOM_ID) FROM ROOM_DETAILS WHERE ROOM_ID = ? AND IS_AVAILABLE = 1";
+            preparedStatement = getConnection().prepareStatement(checkRoom);
             preparedStatement.setInt(1, roomID);
             resultSet = preparedStatement.executeQuery();
             resultSet.next();
-            int roomCount = resultSet.getInt(1);
-
+            roomCount = resultSet.getInt(1);
             resultSet.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                closeConnection();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return roomCount;
+    }
 
+    protected int updateRoomStatus(int roomID, int status) {
+        int updateCount = 0;
+        PreparedStatement preparedStatement = null;
+        try {
+
+            String sql = "UPDATE ROOM_DETAILS SET IS_AVAILABLE = ? WHERE ROOM_ID = ?";
+            preparedStatement = getConnection().prepareStatement(sql);
+            preparedStatement.setInt(1, status);
+            preparedStatement.setInt(2, roomID);
+            updateCount = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+                closeConnection();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return updateCount;
+    }
+
+    protected int allocateRoom(int roomID, int patientId, int duration) {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        int resultCode = 0;
+        try {
+
+            int patientCount = isValidPatient(patientId);
+            int roomCount = isValidRoom(roomID);
             int insertCount = 0;
             if (patientCount > 0 && roomCount > 0) {
                 String sql = "INSERT INTO ROOM_USAGE (ROOM_ID, PATIENT_ID, DURATION_IN_DAYS, U_DATE) VALUES(?,?,?,?)";
-                preparedStatement = connection.prepareStatement(sql);
+                preparedStatement = getConnection().prepareStatement(sql);
                 preparedStatement.setInt(1, roomID);
                 preparedStatement.setInt(2, patientId);
                 preparedStatement.setInt(3, duration);
                 preparedStatement.setDate(4, new java.sql.Date(new Date().getTime()));
                 insertCount = preparedStatement.executeUpdate();
-
+                preparedStatement.close();
             }
             // for invalid patient
             if (patientCount == 0) {
@@ -62,10 +129,7 @@ public class RoomProvider extends DBConnection {
             // if row is inserted
             if (insertCount > 0) {
                 resultCode = 3;
-                String sql = "UPDATE ROOM_DETAILS SET IS_AVAILABLE = 0 WHERE ROOM_ID = ?";
-                preparedStatement = connection.prepareStatement(sql);
-                preparedStatement.setInt(1, roomID);
-                preparedStatement.executeUpdate();
+                updateRoomStatus(roomID, 0);
                 return resultCode;
             }
         } catch (Exception e) {
@@ -78,9 +142,7 @@ public class RoomProvider extends DBConnection {
                 if (resultSet != null) {
                     resultSet.close();
                 }
-                if (connection != null) {
-                    connection.close();
-                }
+                closeConnection();
 
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
@@ -93,11 +155,9 @@ public class RoomProvider extends DBConnection {
         ArrayList<Room> rooms = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Connection connection = null;
         try {
             String sql = "SELECT * FROM ROOM_DETAILS WHERE IS_AVAILABLE = 1 ORDER BY ROOM_ID ASC";
-            connection = getConnection();
-            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement = getConnection().prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
             Room r = null;
             while (resultSet.next()) {
@@ -118,9 +178,7 @@ public class RoomProvider extends DBConnection {
                 if (resultSet != null) {
                     resultSet.close();
                 }
-                if (connection != null) {
-                    connection.close();
-                }
+                closeConnection();
 
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
@@ -137,7 +195,6 @@ public class RoomProvider extends DBConnection {
         ArrayList<RoomUsage> roomDetailsOfPatient = new ArrayList<>();
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Connection connection = null;
         try {
             StringBuilder sb = new StringBuilder();
             sb.append("SELECT ");
@@ -150,8 +207,7 @@ public class RoomProvider extends DBConnection {
             sb.append("WHERE ");
             sb.append("RU.PATIENT_ID = ?");
             String sql = sb.toString();
-            connection = getConnection();
-            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement = getConnection().prepareStatement(sql);
             preparedStatement.setInt(1, PateintId);
             resultSet = preparedStatement.executeQuery();
             RoomUsage roomUsage = null;
@@ -179,9 +235,7 @@ public class RoomProvider extends DBConnection {
                 if (resultSet != null) {
                     resultSet.close();
                 }
-                if (connection != null) {
-                    connection.close();
-                }
+                closeConnection();
 
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
@@ -193,20 +247,15 @@ public class RoomProvider extends DBConnection {
 
     protected boolean removeRoom(int patientID, int roomID) {
         PreparedStatement preparedStatement = null;
-        Connection connection = null;
         boolean result = false;
         try {
             String sqlDelete = "DELETE FROM ROOM_USAGE WHERE ROOM_ID = ? AND PATIENT_ID = ?";
-            String sqlUpdate = "UPDATE ROOM_DETAILS SET IS_AVAILABLE = 1 WHERE ROOM_ID = ?";
-            connection = getConnection();
-            preparedStatement = connection.prepareStatement(sqlDelete);
+            preparedStatement = getConnection().prepareStatement(sqlDelete);
             preparedStatement.setInt(1, roomID);
             preparedStatement.setInt(2, patientID);
             int c = preparedStatement.executeUpdate();
             preparedStatement.close();
-            preparedStatement = connection.prepareStatement(sqlUpdate);
-            preparedStatement.setInt(1, roomID);
-            preparedStatement.executeUpdate();
+            updateRoomStatus(roomID, 1);
             if (c > 0) {
                 result = true;
             }
@@ -218,18 +267,12 @@ public class RoomProvider extends DBConnection {
                 if (preparedStatement != null) {
                     preparedStatement.close();
                 }
-                if (connection != null) {
-                    connection.close();
-                }
+                closeConnection();
 
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
         }
         return result;
-    }
-
-    protected static void viewAllocatedRooms(Room room) {
-        // SQL Query goes here
     }
 }

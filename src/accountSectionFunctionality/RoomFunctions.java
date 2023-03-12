@@ -19,7 +19,7 @@ public class RoomFunctions extends RoomProvider {
         if (statusCode == 1) {
             System.out.println("\nPatient Id is not in Database\n");
         } else if (statusCode == 2) {
-            System.out.println("\n Room is not Available\n");
+            System.out.println("\nRoom is not Available\n");
         } else if (statusCode == 3) {
             System.out.println("\nRoom is alLocated to Patient: " + patientId + "\n");
         } else {
@@ -39,13 +39,17 @@ public class RoomFunctions extends RoomProvider {
         }
         System.out.println("+-----------------------------------------------------+\n");
     }
-    
+
     private void deAllocateRoom() {
         System.out.println("Enter patient ID to deallocate room:");
         int patientID = CommonUtil.scan.nextInt();
         System.out.println("Enter room ID:");
         int roomID = CommonUtil.scan.nextInt();
-        removeRoom(patientID, roomID);
+        if (removeRoom(patientID, roomID)) {
+            System.out.println("\nRoom is Deallocated\n");
+        } else {
+            System.out.println("\nPatientId or RoomId is Incorrect");
+        }
     }
 
     private void viewAllocatedRooms() {
@@ -53,21 +57,21 @@ public class RoomFunctions extends RoomProvider {
         int patientID = CommonUtil.scan.nextInt();
         ArrayList<RoomUsage> allocatedRooms = viewAllocatedRooms(patientID);
         System.out.println(
-                "+---------------------------------------------------------------------------------------------------------------+");
-        System.out.printf("| %-10s  %-10s  %-10s  %-10s  %-15s  %-15s  %-15s  %-10s |%n",
-                "ID", "Room ID", "Patient ID", "Duration", "Date", "Room Type", "Room Charge", "Available");
+                "+---------------------------------------------------------------------------------------------------+");
+        System.out.printf("| %-10s  %-10s  %-10s  %-10s  %-15s  %-15s  %-15s |%n",
+                "ID", "Room ID", "Patient ID", "Duration", "Date", "Room Type", "Room Charge");
         System.out.println(
-                "+---------------------------------------------------------------------------------------------------------------+");
+                "+---------------------------------------------------------------------------------------------------+");
         for (RoomUsage roomUsage : allocatedRooms) {
 
-            System.out.printf("| %-10d  %-10d  %-10d  %-10d  %-15s  %-15s  %-15.2f  %-10b |%n",
+            System.out.printf("| %-10d  %-10d  %-10d  %-10d  %-15s  %-15s  %-15.2f |%n",
                     roomUsage.getroomUsageId(), roomUsage.getRoomId(), roomUsage.getPatientId(),
                     roomUsage.getDurationInDays(), roomUsage.getDate(), roomUsage.getRoomType(),
-                    roomUsage.getRoomCharge(), roomUsage.isAvailable());
+                    roomUsage.getRoomCharge());
 
         }
         System.out.println(
-                "+---------------------------------------------------------------------------------------------------------------+\n");
+                "+---------------------------------------------------------------------------------------------------+\n");
 
     }
 
