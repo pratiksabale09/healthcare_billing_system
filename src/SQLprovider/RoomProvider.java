@@ -109,6 +109,7 @@ public class RoomProvider extends DBConnection {
             if (patientCount > 0 && roomCount > 0) {
                 String sql = "INSERT INTO ROOM_USAGE (ROOM_ID, PATIENT_ID, DURATION_IN_DAYS, U_DATE) VALUES(?,?,?,?)";
                 preparedStatement = getConnection().prepareStatement(sql);
+                preparedStatement = getConnection().prepareStatement(sql);
                 preparedStatement.setInt(1, roomID);
                 preparedStatement.setInt(2, patientId);
                 preparedStatement.setInt(3, duration);

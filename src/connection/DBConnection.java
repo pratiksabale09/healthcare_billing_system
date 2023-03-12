@@ -1,5 +1,4 @@
 package connection;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,7 +11,7 @@ import java.util.Properties;
 public class DBConnection {
     private static Connection connection;
 
-    public Connection getConnection() {
+    protected Connection getConnection() {
         Properties prop = new Properties();
         InputStream is = null;
         try {

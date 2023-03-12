@@ -7,6 +7,7 @@ import models.MedicalTest;
 
 public class MedicalTestProvider extends DBConnection{
     protected  void conductMedicalTest(int medTestID, int patientID) {
+       
         //SQL Query goes here
     }
 

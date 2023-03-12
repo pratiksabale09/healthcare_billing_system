@@ -1,5 +1,4 @@
 package SQLprovider;
-
 import models.Patient;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +8,6 @@ import java.util.ArrayList;
 import connection.DBConnection;
 
 public class PatientProvider extends DBConnection {
-
     public ArrayList<Patient> getPatients() {
         ArrayList<Patient> patients = new ArrayList<>();
         PreparedStatement preparedStatement = null;
