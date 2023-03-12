@@ -15,13 +15,11 @@ public class RoomProvider extends DBConnection {
     protected int allocateRoom(int roomID, int patientId, int duration) {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        Connection connection = null;
         int resultCode = 0;
         try {
-            connection = getConnection();
             String checkPatient = "SELECT COUNT(PATIENT_ID) FROM PATIENT WHERE PATIENT_ID = ?";
             String checkRoom = "SELECT COUNT(ROOM_ID) FROM ROOM_DETAILS WHERE ROOM_ID = ? AND IS_AVAILABLE = 1";
-            preparedStatement = connection.prepareStatement(checkPatient);
+            preparedStatement = getConnection().prepareStatement(checkPatient);
             preparedStatement.setInt(1, patientId);
             resultSet = preparedStatement.executeQuery();
             resultSet.next();
@@ -30,7 +28,7 @@ public class RoomProvider extends DBConnection {
             preparedStatement.close();
             resultSet.close();
 
-            preparedStatement = connection.prepareStatement(checkRoom);
+            preparedStatement = getConnection().prepareStatement(checkRoom);
             preparedStatement.setInt(1, roomID);
             resultSet = preparedStatement.executeQuery();
             resultSet.next();
@@ -41,7 +39,7 @@ public class RoomProvider extends DBConnection {
             int insertCount = 0;
             if (patientCount > 0 && roomCount > 0) {
                 String sql = "INSERT INTO ROOM_USAGE (ROOM_ID, PATIENT_ID, DURATION_IN_DAYS, U_DATE) VALUES(?,?,?,?)";
-                preparedStatement = connection.prepareStatement(sql);
+                preparedStatement = getConnection().prepareStatement(sql);
                 preparedStatement.setInt(1, roomID);
                 preparedStatement.setInt(2, patientId);
                 preparedStatement.setInt(3, duration);
@@ -63,7 +61,7 @@ public class RoomProvider extends DBConnection {
             if (insertCount > 0) {
                 resultCode = 3;
                 String sql = "UPDATE ROOM_DETAILS SET IS_AVAILABLE = 0 WHERE ROOM_ID = ?";
-                preparedStatement = connection.prepareStatement(sql);
+                preparedStatement = getConnection().prepareStatement(sql);
                 preparedStatement.setInt(1, roomID);
                 preparedStatement.executeUpdate();
                 return resultCode;
@@ -78,8 +76,8 @@ public class RoomProvider extends DBConnection {
                 if (resultSet != null) {
                     resultSet.close();
                 }
-                if (connection != null) {
-                    connection.close();
+                if (getConnection() != null) {
+                    getConnection().close();
                 }
 
             } catch (SQLException e) {

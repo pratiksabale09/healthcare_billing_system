@@ -54,6 +54,7 @@ public class EquipmentProvider extends DBConnection {
 
     protected void allocateEquipments(int patientID, ArrayList<Integer> equipmentIDs) {
         // SQL Query goes here
+        
     }
 
     protected void getAllocatedEquipments(int patientID) {
