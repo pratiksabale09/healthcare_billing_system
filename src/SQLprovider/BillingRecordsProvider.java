@@ -43,7 +43,7 @@ public class BillingRecordsProvider extends DBConnection {
         PreparedStatement preparedStatement = null;
         try {
             Date d = new Date(new java.util.Date().getTime());
-            String insertTotalEquipmentCharge = "INSERT INTO BILL_SEGMENT (PATIENT_ID,SEGMENT_NAME,SEGMENT_BILL_AMOUNT, STATUS, BILL_DATE)";
+            String insertTotalEquipmentCharge = "INSERT INTO BILL_SEGMENT (PATIENT_ID,SEGMENT_NAME,SEGMENT_BILL_AMOUNT, STATUS, BILL_DATE) VALUES(?,?,?,?,?)";
             preparedStatement = getConnection().prepareStatement(insertTotalEquipmentCharge);
             for (Map.Entry<String, Float> e : billSegmensts.entrySet()) {
                 preparedStatement.setInt(1, patientId);
@@ -129,8 +129,9 @@ public class BillingRecordsProvider extends DBConnection {
         Map<String, Float> billsegments = new LinkedHashMap<>();
         ResultSet result = null;
         try {
-            String segmentsSql = "SELECT SEGMENT_NAME, SEGMENT_BILL_AMOUNT FROM BILL_SEGMENT WHERE PATIENT_ID = ?";
+            String segmentsSql = "SELECT SEGMENT_NAME, SEGMENT_BILL_AMOUNT FROM BILL_SEGMENT WHERE PATIENT_ID = ? AND STATUS = 0";
             preparedStatement = getConnection().prepareStatement(segmentsSql);
+            preparedStatement.setInt(1,patientId);
             result = preparedStatement.executeQuery();
             while (result.next()) {
                 billsegments.put(result.getString("SEGMENT_NAME"), result.getFloat("SEGMENT_BILL_AMOUNT"));

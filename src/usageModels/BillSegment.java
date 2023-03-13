@@ -50,7 +50,6 @@ public class BillSegment {
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
         return "Patient ID: "+patientId+"   Segment Name: "+segmentName+"   Segment Bill Amount: "+segmentBillAmount+"   Segment Status:"+status;
     }
 }
