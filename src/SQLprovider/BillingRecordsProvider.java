@@ -1,7 +1,6 @@
 package SQLprovider;
 import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -127,24 +126,17 @@ public class BillingRecordsProvider extends DBConnection {
     protected Map<String, Float> getBillById(int patientId) {
         PreparedStatement preparedStatement = null;
         Map<String, Float> billsegments = new LinkedHashMap<>();
-        ResultSet result = null;
         try {
-            String segmentsSql = "SELECT SEGMENT_NAME, SEGMENT_BILL_AMOUNT FROM BILL_SEGMENT WHERE PATIENT_ID = ? AND STATUS = 0";
+            String segmentsSql = "DELETE FROM BILL_SEGMENT WHERE PATIENT_ID = ?";
             preparedStatement = getConnection().prepareStatement(segmentsSql);
             preparedStatement.setInt(1,patientId);
-            result = preparedStatement.executeQuery();
-            while (result.next()) {
-                billsegments.put(result.getString("SEGMENT_NAME"), result.getFloat("SEGMENT_BILL_AMOUNT"));
-            }
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
             try {
                 if (preparedStatement != null) {
                     preparedStatement.close();
-                }
-                if (result != null) {
-                    result.close();
                 }
                 closeConnection();
             } catch (SQLException e) {
