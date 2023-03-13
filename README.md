@@ -33,6 +33,30 @@ push changes : 1. git add .
 
 ## Project Details
 
+The final bill consists of following charges:
+1. Equipment Charges
+2. Room Charges
+3. Treatment Charges
+4. Medical Test Charges
+5. Medicines Charges
+
+These amounts are generated from respective usage tables, where each of these amounts are mapped with patient ID's.
+
+## Application flow
+
+1. App.java
+2. AccountSectionFunctionality -> Depending on user selection, respective .java file will run.
+   This folder consists mainly IO related operations, where each function internally calls seperate functions from individual providers listed under SQLprovider directory.
+3. SQLprovider -> This folder consists of all the methods that makes database calls, and sends results 
+    taking into respective data structure to AccountSectionFunctionality for IO.
+4. Common: This directory consists of common classes like database connection that is shared within the project.
+5. db.properties: properties file to store database details.
+
+## External JAR's Used
+
+1. ojdbc.jar --for oracle database management
+2. itextPdf.jar --for text file to pdf file conversion
+
 
 
                 

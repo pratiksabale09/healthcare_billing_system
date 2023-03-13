@@ -17,7 +17,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 public class CommonUtil {
     public static Scanner scan = new Scanner(System.in);
-    public static String filePath = "C:\\Java\\healthcare_billing_system\\healthcare_billing_system\\bills\\";
+    public static String filePath = "bills\\";
     
     //convert text to pdf
     public static boolean convertTextToPDF(File file) throws Exception {
@@ -71,7 +71,8 @@ public class CommonUtil {
                         myfont.setStyle(Font.NORMAL);;
                     }
                     Paragraph para = new Paragraph(strLine + "\n", myfont);
-                    para.setAlignment(Element.ALIGN_CENTER);
+                    para.setAlignment(Element.ALIGN_JUSTIFIED);
+                    para.setIndentationLeft(170);
                     pdfDoc.add(para);
                     lineCount++;
                 }

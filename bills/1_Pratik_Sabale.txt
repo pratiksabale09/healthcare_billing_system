@@ -1,7 +1,7 @@
 ----------------------------------------
-Patient ID:			1
-Patient Name:		Pratik Sabale
-Bill Date:			13/03/2023 13:04:06
+Patient ID:                        1
+Patient Name:             Pratik Sabale
+Bill Date:        13/03/2023 14:35:36
 ----------------------------------------
 Segment Name            Segment Amount
 Equipment Charge              750.00
