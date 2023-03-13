@@ -53,7 +53,7 @@ public class BillingRecordsProvider extends DBConnection {
                 preparedStatement.setDate(5, d);
                 preparedStatement.addBatch();
             }
-            preparedStatement.executeUpdate();
+            preparedStatement.executeBatch();
             System.out.println("Bill segments are generated");
         } catch (SQLException e) {
             System.out.println(e.getMessage());

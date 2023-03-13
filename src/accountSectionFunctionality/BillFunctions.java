@@ -19,7 +19,7 @@ public class BillFunctions extends BillingRecordsProvider {
 
         if (CommonProvider.isValidPatient(patientID) > 0) {
             Map<String, Float> bill = getBillById(patientID);
-            File file;
+            File file = null;
             PrintWriter printWriter = null;
             String fileName = Integer.toString(patientID);
             PatientProvider patientProvider = new PatientProvider();
@@ -52,6 +52,7 @@ public class BillFunctions extends BillingRecordsProvider {
                 printWriter.flush();
                 System.out.println("Bill Generated Successfully, please check the bills folder!");
 
+
             } catch (Exception e) {
                 e.printStackTrace();
             } finally {
@@ -61,9 +62,15 @@ public class BillFunctions extends BillingRecordsProvider {
                     e.printStackTrace();
                 }
             }
+            try {
+                CommonUtil.convertTextToPDF(file);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             System.out.println("Not valid Patient!");
         }
+    
     }
 
     public void chooseOperation() {

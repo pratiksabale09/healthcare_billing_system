@@ -1,0 +1,13 @@
+----------------------------------------
+Patient ID:			1
+Patient Name:		Pratik Sabale
+Bill Date:			13/03/2023 12:34:08
+----------------------------------------
+     Segment Name            Segment Amount
+Equipment Charge              750.00
+Room Charge                   250.00
+Treatment Charge              650.00
+medical Test Charge            40.00
+----------------------------------------
+Total Amount:                1690.00
+----------------------------------------
