@@ -58,7 +58,7 @@ These amounts are generated from respective usage tables, where each of these am
 ## External JAR's Used
 
 1. ojdbc.jar --for oracle database management
-2. itextPdf.jar --for text file to pdf file conversion
+2. itextPdf.jar --for text file to pdf file conversion.
 
 
 
