@@ -8,7 +8,7 @@ import accountSectionFunctionality.RoomFunctions;
 import accountSectionFunctionality.TreatmentFunctions;
 
 public class App {
-    static void accountSection() {
+    static void runApp() {
         int bLoop = 1;
         while (bLoop == 1) {
             System.out.println("Please select an option to continue:");
@@ -60,26 +60,8 @@ public class App {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         System.out.println("Welcome to the Healthcare Billing System");
-        int aLoop = 1;
-        while (aLoop == 1) {
-            System.out.println("Please select your Role to continue:");
-            System.out.println("1. Admin Section \n2. Account Section\n");
-            int a = CommonUtil.scan.nextInt();
-            switch (a) {
-                case 1:
-                
-                    break;
-
-                case 2:
-                    accountSection();
-                    break;
-                default:
-                    System.out.println("Choose correct option!");
-            }
-            System.out.println("Press 1 to continue, 0 to exit Application");
-            aLoop = CommonUtil.scan.nextInt();
-        }
+        runApp();
     }
 }

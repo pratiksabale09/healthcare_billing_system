@@ -54,8 +54,15 @@ public class CommonUtil {
                 br = new BufferedReader(new FileReader(file));
                 String strLine;
                 int lineCount = 1;
+                int totalLines = 0;
                 while ((strLine = br.readLine()) != null) {
-                    if(lineCount==6 || lineCount==12)
+                    totalLines++;
+                }
+                br.close();
+                br = new BufferedReader(new FileReader(file));
+    
+                while ((strLine = br.readLine()) != null) {
+                    if(lineCount==6 || lineCount==totalLines-1)
                     {
                         myfont.setStyle(Font.BOLD);
                     }

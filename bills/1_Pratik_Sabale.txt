@@ -1,9 +1,9 @@
 ----------------------------------------
 Patient ID:			1
 Patient Name:		Pratik Sabale
-Bill Date:			13/03/2023 12:34:08
+Bill Date:			13/03/2023 13:04:06
 ----------------------------------------
-     Segment Name            Segment Amount
+Segment Name            Segment Amount
 Equipment Charge              750.00
 Room Charge                   250.00
 Treatment Charge              650.00
