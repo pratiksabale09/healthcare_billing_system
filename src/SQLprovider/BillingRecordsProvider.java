@@ -5,7 +5,7 @@ import models.Patient;
 import usageModels.BillSegment;
 
 public class BillingRecordsProvider extends DBConnection{
-    protected  BillSegment showBillById(int patientID) {
+    protected  BillSegment getBillById(int patientID) {
         //SQL Query goes here
         return new BillSegment(patientID, null, patientID, null);
     }

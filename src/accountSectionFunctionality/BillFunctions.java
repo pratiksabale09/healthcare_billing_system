@@ -3,6 +3,8 @@ package accountSectionFunctionality;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 import Common.CommonProvider;
@@ -19,16 +21,22 @@ public class BillFunctions extends BillingRecordsProvider{
         
         if(CommonProvider.isValidPatient(patientID)>0)
         {
-            Map<String, Float> bill = getBillByID(patientID);
+            Map<String, Float> bill = getBillById(patientID);
             File file;
             FileWriter filewriter = null;
             String fileName = Integer.toString(patientID);
             PatientProvider patientProvider = new PatientProvider();
             Patient currPatient = patientProvider.getPatientById(patientID);
             fileName = fileName+"_"+currPatient.getFirstName()+"_"+currPatient.getLastName();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+            Date date = new Date();  
+            String currDate = formatter.format(date);
             try {
                 file = new File("C:\\Java\\healthcare_billing_system\\healthcare_billing_system\\bills\\"+fileName+".txt");
                 filewriter = new FileWriter(file);
+                filewriter.write("Patient ID:              "+currPatient.getPatientId()+"\n");
+                filewriter.write("Patient Name:              "+currPatient.getFirstName()+" "+currPatient.getLastName()+"\n");
+                filewriter.write("Bill Date:              "+currDate+"\n");
                 filewriter.write("Segment Name              Segment Amount\n");
                 float totalAmount = 0;
                 for(Map.Entry<String, Float>  billSegment: bill.entrySet())
