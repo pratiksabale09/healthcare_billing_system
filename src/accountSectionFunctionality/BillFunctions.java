@@ -37,7 +37,7 @@ public class BillFunctions extends BillingRecordsProvider{
                 filewriter.write("Patient Name:              "+currPatient.getFirstName()+" "+currPatient.getLastName()+"\n");
                 filewriter.write("Bill Date:                 "+currDate+"\n");
                 filewriter.write("----------------------------------------\n");
-                filewriter.write("Segment Name              Segment Amount\n");
+                filewriter.write("Segment Name            Segment Amount\n");
                 float totalAmount = 0;
                 for(Map.Entry<String, Float>  billSegment: bill.entrySet())
                 {
