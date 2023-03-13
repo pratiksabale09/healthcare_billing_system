@@ -86,7 +86,7 @@ public class EquipmentFunctions extends EquipmentProvider {
 
     public void chooseOperation() {
         System.out.println(
-                "Choose an option:\n1. Allocate Equipment\n2. View Equipment\n3. Deallocate Equipment\n4. View Equipment used by patient ID");
+                "Choose an option:\n1. Allocate Equipment\n2. View All Available Equipments\n3. Deallocate Equipment by Patient ID\n4. View Equipments used by patient ID");
         int option = CommonUtil.scan.nextInt();
         switch (option) {
             case 1:

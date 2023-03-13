@@ -1,4 +1,5 @@
 package accountSectionFunctionality;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.PrintWriter;
@@ -13,7 +14,9 @@ import SQLprovider.PatientProvider;
 import common.CommonProvider;
 import common.CommonUtil;
 import models.Patient;
+
 public class BillFunctions extends BillingRecordsProvider {
+
     private void generateBill() {
         System.out.println("Enter patient ID to generate bill for: ");
         int patientID = CommonUtil.scan.nextInt();
@@ -28,6 +31,7 @@ public class BillFunctions extends BillingRecordsProvider {
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date date = new Date();
             String currDate = formatter.format(date);
+
             try {
                 file = new File(CommonUtil.filePath + fileName + ".txt");
                 printWriter = new PrintWriter(file);
@@ -69,7 +73,8 @@ public class BillFunctions extends BillingRecordsProvider {
             System.out.println("Not valid Patient!");
         }
     }
-    public  void readAndPrintFile(File filename) {
+
+    public void readAndPrintFile(File filename) {
         try {
             BufferedReader reader = new BufferedReader(new FileReader(filename));
             String line = reader.readLine();
@@ -82,6 +87,7 @@ public class BillFunctions extends BillingRecordsProvider {
             System.err.println("Error reading file: " + e.getMessage());
         }
     }
+
     public void chooseOperation() {
         System.out.println(
                 "Choose an option: \n1. Generate Bill ");
@@ -90,7 +96,7 @@ public class BillFunctions extends BillingRecordsProvider {
             case 1:
                 generateBill();
                 break;
-            
+
             default:
                 break;
         }

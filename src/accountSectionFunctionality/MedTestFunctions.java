@@ -57,8 +57,8 @@ public class MedTestFunctions extends MedicalTestProvider {
     }
 
     public void chooseOperation() {
-        System.out.println(
-                "Choose an option:\n1. Conduct MedicalTest\n2. View MedicalTest\n3. View MedicalTests by patient ID");
+        System.out.println( 
+                "Choose an option:\n1. Conduct Medical Test\n2. View All Available Medical Tests\n3. View Medical Tests Used by patient ID");
         int option = CommonUtil.scan.nextInt();
         switch (option) {
             case 1:

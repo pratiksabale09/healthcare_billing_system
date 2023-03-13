@@ -86,7 +86,7 @@ public class TreatmentFunctions extends TreatmentProvider {
 
     public void chooseOperation() {
         System.out.println(
-                "Choose an option:\n1. Use Treatment\n2. Show All Treatments / services\n3. View Treatments by patient ID\n4. View Doctors");
+                "Choose an option:\n1. Get Treatment\n2. Show All Treatments / services\n3. View Treatments Taken by patient ID\n4. View Doctors");
         int option = CommonUtil.scan.nextInt();
         switch (option) {
             case 1:

@@ -11,7 +11,7 @@ public class App {
     static void runApp() {
         int bLoop = 1;
         while (bLoop == 1) {
-            System.out.println("Please select an option to continue:");
+            System.out.println("Please select an option to continue to perform actions on:");
             System.out.println("1. Patient:");
             System.out.println("2. Treatment and Services:");
             System.out.println("3. Medical Test:");

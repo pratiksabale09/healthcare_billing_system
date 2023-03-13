@@ -100,7 +100,7 @@ public class PatientFunctions extends PatientProvider {
 
     public void chooseOperation() {
         System.out.println(
-                "Choose an option:\n1. Add Patient\n2. View Patient\n3. Remove Patient\n4. View Patient by ID\n");
+                "Choose an option:\n1. Add Patient\n2. View All Patients\n3. Delete Patient\n4. View Patient Details by ID\n");
         int option = CommonUtil.scan.nextInt();
         switch (option) {
             case 1:
