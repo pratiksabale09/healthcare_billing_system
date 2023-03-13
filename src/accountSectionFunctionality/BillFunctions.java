@@ -33,19 +33,22 @@ public class BillFunctions extends BillingRecordsProvider{
             try {
                 file = new File("C:\\Java\\healthcare_billing_system\\healthcare_billing_system\\bills\\"+fileName+".txt");
                 filewriter = new FileWriter(file);
-                filewriter.write("Patient ID:              "+currPatient.getPatientId()+"\n");
+                filewriter.write("Patient ID:                "+currPatient.getPatientId()+"\n");
                 filewriter.write("Patient Name:              "+currPatient.getFirstName()+" "+currPatient.getLastName()+"\n");
-                filewriter.write("Bill Date:              "+currDate+"\n");
+                filewriter.write("Bill Date:                 "+currDate+"\n");
+                filewriter.write("----------------------------------------\n");
                 filewriter.write("Segment Name              Segment Amount\n");
                 float totalAmount = 0;
                 for(Map.Entry<String, Float>  billSegment: bill.entrySet())
                 {
                     String segmentName = billSegment.getKey();
                     float amount = billSegment.getValue();
-                    filewriter.write(segmentName+"              "+amount+"\n");
+                    filewriter.write(segmentName+"           "+amount+"\n");
                     totalAmount = totalAmount + amount;
                 }
-                filewriter.write("Total Amount:             "+totalAmount+"\n");
+                filewriter.write("----------------------------------------\n");
+                filewriter.write("Total Amount:              "+totalAmount+"\n");
+                filewriter.write("----------------------------------------\n");
                 filewriter.flush();
                 System.out.println("Bill Generated Successfully, please check the bills folder!");
                 
