@@ -1,0 +1,10 @@
+Patient ID:              7
+Patient Name:              Akash Patil
+Bill Date:              13/03/2023 10:20:42
+Segment Name              Segment Amount
+Equipment Charge              500.0
+Room Charge              600.0
+Treatment Charge              275.0
+medical Test Charge              170.0
+Medicine Charge              147.0
+Total Amount:             1692.0
