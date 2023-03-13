@@ -2,8 +2,8 @@ package accountSectionFunctionality;
 
 import java.util.ArrayList;
 
-import Common.CommonUtil;
 import SQLprovider.RoomProvider;
+import common.CommonUtil;
 import models.Room;
 import usageModels.RoomUsage;
 

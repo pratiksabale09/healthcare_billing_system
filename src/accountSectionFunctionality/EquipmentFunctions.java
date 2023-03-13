@@ -2,8 +2,8 @@ package accountSectionFunctionality;
 
 import java.util.ArrayList;
 
-import Common.CommonUtil;
 import SQLprovider.EquipmentProvider;
+import common.CommonUtil;
 import models.Equipment;
 import usageModels.EquipmentUsage;
 

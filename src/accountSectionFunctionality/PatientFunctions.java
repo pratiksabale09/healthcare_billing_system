@@ -5,8 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import Common.CommonUtil;
 import SQLprovider.PatientProvider;
+import common.CommonUtil;
 import models.Patient;
 
 public class PatientFunctions extends PatientProvider {

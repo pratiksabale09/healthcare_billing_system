@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import Common.CommonProvider;
+import common.CommonProvider;
 import connection.DBConnection;
 import models.Doctor;
 import models.Treatment;

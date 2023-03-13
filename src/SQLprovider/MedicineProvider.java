@@ -9,7 +9,7 @@ import models.Medicine;
 import usageModels.MedicineUsage;
 import java.util.Date;
 
-import Common.CommonProvider;
+import common.CommonProvider;
 
 public class MedicineProvider extends DBConnection {
 

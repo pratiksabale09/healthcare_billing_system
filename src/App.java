@@ -1,4 +1,3 @@
-import Common.CommonUtil;
 import accountSectionFunctionality.BillFunctions;
 import accountSectionFunctionality.EquipmentFunctions;
 import accountSectionFunctionality.MedTestFunctions;
@@ -6,6 +5,7 @@ import accountSectionFunctionality.MedicineFunctions;
 import accountSectionFunctionality.PatientFunctions;
 import accountSectionFunctionality.RoomFunctions;
 import accountSectionFunctionality.TreatmentFunctions;
+import common.CommonUtil;
 
 public class App {
     static void runApp() {

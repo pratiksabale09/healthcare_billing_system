@@ -2,8 +2,8 @@ package accountSectionFunctionality;
 
 import java.util.ArrayList;
 
-import Common.CommonUtil;
 import SQLprovider.MedicalTestProvider;
+import common.CommonUtil;
 import models.MedicalTest;
 import usageModels.MedicalTestConducted;
 

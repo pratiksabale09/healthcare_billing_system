@@ -7,10 +7,11 @@ import java.util.Date;
 import java.util.Map;
 import java.io.FileReader;
 import java.io.IOException;
-import Common.CommonProvider;
-import Common.CommonUtil;
+
 import SQLprovider.BillingRecordsProvider;
 import SQLprovider.PatientProvider;
+import common.CommonProvider;
+import common.CommonUtil;
 import models.Patient;
 public class BillFunctions extends BillingRecordsProvider {
     private void generateBill() {

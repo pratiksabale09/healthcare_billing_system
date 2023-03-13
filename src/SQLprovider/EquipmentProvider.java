@@ -1,11 +1,14 @@
 package SQLprovider;
 
 import java.util.Date;
+
+import common.CommonProvider;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import Common.CommonProvider;
+
 import connection.DBConnection;
 import models.Equipment;
 import usageModels.EquipmentUsage;
