@@ -83,12 +83,13 @@ public class BillFunctions extends BillingRecordsProvider {
     }
     public void chooseOperation() {
         System.out.println(
-                "Choose an option: 1. Generate Bill ");
+                "Choose an option: \n1. Generate Bill ");
         int option = CommonUtil.scan.nextInt();
         switch (option) {
             case 1:
                 generateBill();
                 break;
+            
             default:
                 break;
         }
