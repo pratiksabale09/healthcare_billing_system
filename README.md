@@ -49,8 +49,9 @@ These amounts are generated from respective usage tables, where each of these am
    This folder consists mainly IO related operations, where each function internally calls seperate functions from individual providers listed under SQLprovider directory.
 3. SQLprovider -> This folder consists of all the methods that makes database calls, and sends results 
     taking into respective data structure to AccountSectionFunctionality for IO.
-4. Common: This directory consists of common classes like database connection that is shared within the project.
-5. db.properties: properties file to store database details.
+4. Models: Data Model Classes that are used in the project.
+5. Common: This directory consists of common classes like database connection that is shared within the project.
+6. db.properties: properties file to store database details.
 
 ## External JAR's Used
 
