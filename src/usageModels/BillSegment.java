@@ -47,5 +47,11 @@ public class BillSegment {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "Patient ID: "+patientId+"   Segment Name: "+segmentName+"   Segment Bill Amount: "+segmentBillAmount+"   Segment Status:"+status;
+    }
 }
 
