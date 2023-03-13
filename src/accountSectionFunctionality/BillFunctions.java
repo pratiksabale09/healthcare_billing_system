@@ -12,7 +12,6 @@ import Common.CommonUtil;
 import SQLprovider.BillingRecordsProvider;
 import SQLprovider.PatientProvider;
 import models.Patient;
-import usageModels.BillSegment;
 
 public class BillFunctions extends BillingRecordsProvider{
     private void generateBill() {
