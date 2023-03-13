@@ -1,8 +1,5 @@
 package models;
-
-import SQLprovider.DoctorProvider;
-
-public class Doctor extends DoctorProvider{
+public class Doctor {
     private int doctorId;
     private String name;
     private String qualification;

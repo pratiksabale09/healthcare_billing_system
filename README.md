@@ -8,6 +8,8 @@ The workspace contains two folders by default, where:
 
 - `src`: the folder to maintain sources
 - `lib`: the folder to maintain dependencies
+- `SQL`: the folder to maintain SQL queries
+- `bills`: the folder to maintain all generated bills
 
 Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 
@@ -29,6 +31,8 @@ push changes : 1. git add .
                 6. git branch
                 7. git checkout
 
-## Git 
+## Project Details
+
+
 
                 
